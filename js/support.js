@@ -8,22 +8,16 @@ function getRnd(min, max){
   return rnd;
 }
 
-// Verifico se il numero è pari o dispari
-function isPair(value){
-  if (value % 2 == 0){
-    return true;
-  } else {
-    return false;
-  }
-}
+// quantity di numeri random diversi tra un numMin e un numMax
+function getRnds(numMin, numMax, quantity){
+  var numRnds = []
 
-// Verifico se una parola è palindroma
-function isPalindrom(str){
-  var reverseStr = str.toLowerCase().split('').reverse( ).join('');
+  do {
+    var numRnd = getRnd(numMin, numMax);
+    if (!numRnds.includes(numRnd)){
+      numRnds.push(numRnd);
+    }
+  } while (numRnds.length != quantity);
 
-  if (str == reverseStr){
-    return true;
-  } else {
-    return false;
-  }
+  return numRnds;
 }

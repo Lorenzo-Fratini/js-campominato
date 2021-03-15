@@ -1,9 +1,8 @@
 function mineField(){
 
-  var comNums = [];
-  var numsLength = 16;
+  var numsLength = 5;
   var comNumMin = 1;
-  var comNumMax = 100;
+  var comNumMax = 10;
 
   // Bonus scelta difficoltà
 
@@ -29,12 +28,7 @@ function mineField(){
   //   comNumMax = 100;
   // }
 
-  do {
-    var comNum = getRnd(comNumMin, comNumMax);
-    if (!comNums.includes(comNum)){
-      comNums.push(comNum);
-    }
-  } while (comNums.length != numsLength);
+  var comNums = getRnds(comNumMin, comNumMax, numsLength);
 
   console.log(comNums);
 
