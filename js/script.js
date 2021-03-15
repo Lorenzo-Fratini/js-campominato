@@ -1,48 +1,48 @@
 function mineField(){
 
   var comNums = [];
-  var comNumsLng = 5;
+  var numsLength = 5;
   var comNumMin = 1;
   var comNumMax = 10;
 
-  for (i = 0; i < comNumsLng; i++){
+  do {
     var comNum = getRnd(comNumMin, comNumMax);
-    if (comNums.includes(comNum)){
-      i--
-    } else {
+    if (!comNums.includes(comNum)){
       comNums.push(comNum);
     }
-  }
+  } while (comNums.length != numsLength);
 
   console.log(comNums);
 
   var userNums = [];
-  var control = true;
+  var userControl = true;
+  var round = 0;
 
-  for (i = 0; i < (comNumMax - comNumsLng); i++){
+  do {
     var userNum = parseInt(prompt('inserisci un numero tra 1 e 100'));
 
+    console.log(userNum);
+
+    console.log('round', round);
+
     if (userNum > comNumMax || userNum < comNumMin) {
-      alert('Numero inserito non corretto');
-      i--;
+      alert('Numero inserito non compreso tra 1 e 100');
     }
 
-    var round = i;
-
     if (userNums.includes(userNum)){
-      i--
+      alert('Numero già inserito');
     } else {
       userNums.push(userNum);
+      round++;
     }
 
     if (comNums.includes(userNum)){
       console.log('hai perso');
-      control = false;
-      break;
+      userControl = false;
     }
-  }
+  } while (userControl && (round != comNumMax - numsLength));
 
-  if (control){
+  if (userControl){
     console.log('Hai inserito ' + round + ' numeri corretti e hai vinto!');
   }
 }
