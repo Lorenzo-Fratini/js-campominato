@@ -1,8 +1,8 @@
 function mineField(){
 
-  var numsLength = 5;
+  var numsLength = 5; //16
   var comNumMin = 1;
-  var comNumMax = 10;
+  var comNumMax = 10; //100
 
   // Bonus scelta difficoltà
 
@@ -32,32 +32,39 @@ function mineField(){
 
   console.log(comNums);
 
-  var userNums = [];
-  var userControl = true;
-  var round = 0;
+  var start = document.getElementById('start');
+  start.addEventListener('click', gameStart);
 
-  do {
-    var userNum = parseInt(prompt('Inserisci un numero tra ' + comNumMin + ' e ' + comNumMax ));
 
-    if (userNum > comNumMax || userNum < comNumMin) {
-      alert('Numero inserito non compreso tra ' + comNumMin + ' e ' + comNumMax );
+
+  function gameStart() {
+    var userNums = [];
+    var userControl = true;
+    var round = 0;
+
+    do {
+      var userNum = parseInt(prompt('Inserisci un numero tra ' + comNumMin + ' e ' + comNumMax ));
+
+      if (userNum > comNumMax || userNum < comNumMin) {
+        alert('Numero inserito non compreso tra ' + comNumMin + ' e ' + comNumMax );
+      }
+
+      if (userNums.includes(userNum)){
+        alert('Scelta non valida o numero già inserito');
+      } else {
+        userNums.push(userNum);
+        round++;
+      }
+
+      if (comNums.includes(userNum)){
+        console.log('Hai perso!');
+        userControl = false;
+      }
+    } while (userControl && (round != comNumMax - numsLength));
+
+    if (userControl){
+      console.log('Hai inserito ' + round + ' numeri corretti e hai vinto!');
     }
-
-    if (userNums.includes(userNum)){
-      alert('Scelta non valida o numero già inserito');
-    } else {
-      userNums.push(userNum);
-      round++;
-    }
-
-    if (comNums.includes(userNum)){
-      console.log('Hai perso!');
-      userControl = false;
-    }
-  } while (userControl && (round != comNumMax - numsLength));
-
-  if (userControl){
-    console.log('Hai inserito ' + round + ' numeri corretti e hai vinto!');
   }
 }
 
