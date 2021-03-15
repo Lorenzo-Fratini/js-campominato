@@ -22,6 +22,11 @@ function mineField(){
   for (i = 0; i < (comNumMax - comNumsLng); i++){
     var userNum = parseInt(prompt('inserisci un numero tra 1 e 100'));
 
+    if (userNum > comNumMax || userNum < comNumMin) {
+      alert('Numero inserito non corretto');
+      i--;
+    }
+
     var round = i;
 
     if (userNums.includes(userNum)){
