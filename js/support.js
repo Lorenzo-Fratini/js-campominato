@@ -8,7 +8,7 @@ function getRnd(min, max){
   return rnd;
 }
 
-// quantity di numeri random diversi tra un numMin e un numMax
+// quantity di numeri random diversi tra un numMin e un numMax in un array
 function getRnds(numMin, numMax, quantity){
   var numRnds = []
 

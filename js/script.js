@@ -37,10 +37,10 @@ function mineField(){
   var round = 0;
 
   do {
-    var userNum = parseInt(prompt('inserisci un numero tra 1 e 100'));
+    var userNum = parseInt(prompt('Inserisci un numero tra ' + comNumMin + ' e ' + comNumMax ));
 
     if (userNum > comNumMax || userNum < comNumMin) {
-      alert('Numero inserito non compreso tra 1 e 100');
+      alert('Numero inserito non compreso tra ' + comNumMin + ' e ' + comNumMax );
     }
 
     if (userNums.includes(userNum)){
