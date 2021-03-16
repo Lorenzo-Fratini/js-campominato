@@ -1,8 +1,8 @@
 // Numero random tra max e min
-function getRnd(min, max){
+function getRnd(numMin, numMax){
 
-  var minRnd = min;
-  var maxRnd = max - minRnd + 1;
+  var minRnd = numMin;
+  var maxRnd = numMax - minRnd + 1;
 
   var rnd = parseInt(Math.floor(Math.random() * maxRnd) + minRnd);
   return rnd;
@@ -10,14 +10,14 @@ function getRnd(min, max){
 
 // quantity di numeri random diversi tra un numMin e un numMax in un array
 function getRnds(numMin, numMax, quantity){
-  var numRnds = []
+  var numRnds = [];
 
-  do {
+  while (numRnds.length != quantity){
     var numRnd = getRnd(numMin, numMax);
     if (!numRnds.includes(numRnd)){
       numRnds.push(numRnd);
     }
-  } while (numRnds.length != quantity);
+  }
 
   return numRnds;
 }

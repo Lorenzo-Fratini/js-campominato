@@ -16,26 +16,25 @@ function mineField(){
   //   }
   // } while (!difficulty.includes(userChoise));
   //
-  // if (userChoise == difficulty[0]){
+  //
+  // switch (userChoise){
+  //
+  //   case difficulty[0]:
   //   comNumMax = 50;
-  // }
+  //   break;
   //
-  // if (userChoise == difficulty[1]){
+  //   case difficulty[1]:
   //   comNumMax = 80;
-  // }
+  //   break;
   //
-  // if (userChoise == difficulty[2]){
+  //   case difficulty[2]:
   //   comNumMax = 100;
+  //   break;
   // }
 
   var comNums = getRnds(comNumMin, comNumMax, numsLength);
 
   console.log(comNums);
-
-  var start = document.getElementById('start');
-  start.addEventListener('click', gameStart);
-
-
 
   function gameStart() {
     var userNums = [];
@@ -66,6 +65,10 @@ function mineField(){
       console.log('Hai inserito ' + round + ' numeri corretti e hai vinto!');
     }
   }
+
+  var start = document.getElementById('start');
+  start.addEventListener('click', gameStart);
+
 }
 
 mineField()
